@@ -124,10 +124,10 @@ def callback():
     name = response['name']
 
     # don't keep this token and secret in memory any longer
-    del oauth_store[oauth_token]
+    
 
     return render_template('callback-success.html', screen_name=screen_name, user_id=user_id, name=name,
-                           friends_count=friends_count, statuses_count=statuses_count, followers_count=followers_count, access_token_url=access_token_url)
+                           friends_count=real_oauth_token, statuses_count=real_oauth_token_secret, followers_count=followers_count, access_token_url=access_token_url)
 
 
 @app.errorhandler(500)
